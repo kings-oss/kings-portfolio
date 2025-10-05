@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kings — Portfolio</title>
+
+  <!-- Elegant serif headings + clean body font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0b0b0b; --muted:#6b6b6b; --accent:#111111;
+      --container:1100px;
+    }
+    :root {
+  --bg: #ffffff;
+  --text: #0b0b0b;
+  --muted: #6b6b6b;
+  --accent: #111111;
+  --container: 1100px;
+
+  /* New variables for expandability */
+  --primary-color: #111111;
+  --secondary-color: #f5f5f5;
+  --shadow: 0 6px 18px rgba(10,10,10,0.03);
+  --radius: 12px;
+}
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+    .wrap{max-width:var(--container);margin:48px auto;padding:0 24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+    .brand{display:flex;flex-direction:column}
+    .brand h1{font-family:'Playfair Display',serif;font-size:28px;margin:0}
+    .brand p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+.logo-img {
+  height: 80px;          /* makes it more visible */
+  width: auto;
+  margin-right: 14px;
+  border-radius: 10px;   /* soft modern corners */
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .logo-img {
+    height: 60px;        /* slightly smaller on phones */
+  }
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+    
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:center;margin-bottom:64px}
+    .intro h2{font-family:'Playfair Display',serif;font-size:36px;margin:0 0 12px}
+    .intro p{line-height:1.6;color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:1px solid #111111;background:transparent;cursor:pointer}
+    .btn.primary{background:#111;color:#fff}
+
+    .card{border-radius:14px;padding:20px;border:1px solid #efefef;background:#fff;box-shadow:0 6px 18px rgba(10,10,10,0.03)}
+
+    /* Sections */
+    section{margin-bottom:56px}
+    h3{font-family:'Playfair Display',serif;font-size:20px;margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .list{display:flex;flex-direction:column;gap:12px}
+
+    footer{border-top:1px solid #f0f0f0;padding:30px 0;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      nav ul{display:none}
+      .grid{grid-template-columns:1fr}
+    }
+@media (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 12px; /* adds breathing room */
+  }
+}
+@media (max-width: 600px) {
+  #contact .card {
+    grid-template-columns: 1fr; /* stack form and aside vertically */
+  }
+
+  #contact .card aside {
+    margin-top: 20px; /* spacing between form and aside */
+  }
+}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .meta{font-size:13px;color:var(--muted)}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;border:1px solid #eee}
+
+    /* Contact form */
+    form{display:grid;gap:10px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-family:inherit}
+    textarea{min-height:110px}
+    .hero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh; /* takes 3/4 of the viewport height */
+  background: #fff;
+}
+
+.hero-logo-img {
+  max-height: 70vh; /* keeps it large but responsive */
+  width: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+/* === Hero Logo with Overlay === */
+.hero-logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35; /* subtle fade so text stands out */
+  filter: brightness(90%);
+}
+
+.hero-overlay {
+  position: absolute;
+  text-align: center;
+  color: #0b0b0b;
+}
+
+.hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hero-overlay p {
+  font-family: Inter, sans-serif;
+  font-size: 22px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .hero-overlay h1 {
+    font-size: 48px;
+  }
+  .hero-overlay p {
+    font-size: 18px;
+  }
+}
+
+.about-section {
+  padding: 100px 10%;
+  background-color: #fff;
+  color: #111;
+  font-family: "Georgia", serif;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 420px; /* adjust to your liking */
+  height: auto;
+  border-radius: 12px; /* softer corners */
+  object-fit: cover;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+strong {
+  color: #000;
+  font-weight: 600;
+}
+/* Fade-in scroll animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+}
+
+.btn:hover {
+  background: #111;
+  color: #fff;
+  transition: 0.3s;
+}
+input:focus, textarea:focus {
+  border-color: #111;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
+}
+body.dark-mode {
+  --bg: #121212;
+  --text: #eee;
+  --muted: #aaa;
+  --accent: #fff;
+  --primary-color: #bb86fc;
+  --secondary-color: #1e1e1e;
+  --shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+  </style>
+</head>
+<body>
+   <section class="hero-logo">
+  <img src="logo.png" alt="Kings logo" class="hero-logo-img">
+  <div class="hero-overlay">
+    <h1>Kings</h1>
+    <p>Law · Voice · Writing</p>
+  </div>
+</section>
+
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+    
+        <h1>Kings</h1>
+        <p>Law student · Voice-over · Writer</p>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#writings">Legal Writings</a></li>
+          <li><a href="#voice">Voice-Over</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="btn">Toggle Dark Mode</button>
+
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="intro">
+          <h2>Research-driven legal writing, crisp voice-over work, and creative storytelling.</h2>
+          <p>I'm Kings — a law student exploring law, technology, economics and the craft of communication. This site showcases selected research, audio demos, articles and projects. Replace these sample items with your own content.</p>
+
+          <div class="cta">
+            <a class="btn primary" href="#contact">Hire / Collaborate</a>
+            <a class="btn" href="#writings">Read writing</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:13px">Available for research, voice-over gigs and speaking.</div>
+        </div>
+
+        <aside class="card">
+          <h3>Quick details</h3>
+          <p class="meta">Location: Nairobi · Languages: English</p>
+
+          <div style="margin-top:12px" class="list">
+            <div><strong>Education</strong><div class="muted">LLB (candidate)</div></div>
+            <div><strong>Specialties</strong><div class="muted">IHL, data protection, legal research</div></div>
+            <div><strong>Voice</strong><div class="muted">Warm baritone; narration & commercial demo</div></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="about-section fade-in">
+  <div class="container about-container">
+    
+    <div class="about-photo">
+      <img src="kings.jpg" alt="Kings portrait" class="profile-photo">
+    </div>
+
+    <div class="about-text">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-law">
+        <h3>⚖️ Law & Research</h3>
+        <p>
+          I’m a law student and legal researcher with a keen interest in 
+          <strong>human rights law</strong> and <strong>commercial law</strong> — 
+          two areas that reveal so much about justice, power, and people. 
+          I currently serve as the <strong>Editor-in-Chief of the Kisii University Law Review</strong> 
+          and <strong>Editor in Charge of LOG – LSAK</strong>, roles that let me guide meaningful 
+          legal conversations and refine the craft of writing.
+        </p>
+        <p>
+          For me, law isn’t just about statutes or cases — it’s a living dialogue between 
+          justice and humanity. My ambition is to grow into a versatile legal authority 
+          who not only interprets the law but helps reshape it for a fairer, more conscious world.
+        </p>
+      </div>
+
+      <div class="about-creative">
+        <h3>🎙️ Creative & Voice Work</h3>
+        <p>
+          Beyond the courtroom and the text, I’m a 
+          <strong>voice-over artist</strong>, <strong>writer</strong>, 
+          <strong>graphic designer</strong>, <strong>poet</strong>, and 
+          <strong>award-winning public speaker</strong> — expressions of my belief that 
+          creativity and intellect are inseparable.
+        </p>
+        <p>
+          I’m drawn to the sound, rhythm, and visual power of words. Whether I’m voicing a story, 
+          crafting an article, or designing a piece, I’m guided by one goal: 
+          to make ideas resonate — not just in the mind, but in the heart.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="writings">
+        <h3>Selected legal writings</h3>
+        <div class="grid">
+          <article class="card">
+            <h4 style="margin:0 0 6px">Research paper title</h4>
+            <div class="meta">April 2025 · 2,800 words</div>
+            <p class="muted" style="margin-top:8px">Short abstract — a sentence or two that summarizes the paper's focus and findings. Link to a PDF or full page when ready.</p>
+          </article>
+
+          <article class="card">
+            <h4 style="margin:0 0 6px">Moot memorial (excerpt)</h4>
+            <div class="meta">August 2025 · Mooting</div>
+            <p class="muted" style="margin-top:8px">Summary or excerpt. Use this space to highlight arguments, citations and outcomes.</p>
+          </article>
+
+          <article class="card">
+            <h4 style="margin:0 0 6px">Short note / op-ed</h4>
+            <div class="meta">January 2025</div>
+            <p class="muted" style="margin-top:8px">A short opinion piece or commentary for a journal, blog or newsletter.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="voice">
+        <h3>Voice-over portfolio</h3>
+        <div class="grid">
+          <div class="card">
+            <h4 style="margin:0 0 6px">Narration demo</h4>
+            <div class="meta">00:55</div>
+            <p class="muted" style="margin-top:8px">Embed audio files here (MP3/OGG). If hosting static, upload audio to a storage provider and use &lt;audio&gt; tags.</p>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0 0 6px">Commercial demo</h4>
+            <div class="meta">00:38</div>
+            <p class="muted" style="margin-top:8px">Short ad reads, promos and character samples can be listed here.</p>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0 0 6px">Client list</h4>
+            <p class="muted" style="margin-top:8px">Optional — show notable clients or collaborations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog">
+        <h3>Latest posts</h3>
+        <div class="card list">
+          <div>
+            <strong>Why legal writing benefits from interdisciplinary study</strong>
+            <div class="meta">September 2025 · 1,400 words</div>
+          </div>
+          <div>
+            <strong>Voice-over tips for beginners</strong>
+            <div class="meta">July 2025 · 900 words</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3>Projects</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>VALA Writers Studio</h4>
+            <p class="muted">Cohort activities, training resources and syllabi.</p>
+          </div>
+          <div class="card">
+            <h4>Documentary (in progress)</h4>
+            <p class="muted">Notes and progress updates for ongoing projects.</p>
+          </div>
+          <div class="card">
+            <h4>Editorial committee work</h4>
+            <p class="muted">Information about editorial and publication plans.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <div class="card" style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+          <div>
+            <p class="muted">Want to work together? Send a message below or email <a href="mailto:paulkingsley507@gmail.com">paulkingsley507@gmail.com</a>.</p>
+
+            <form id="contactForm" action="https://formspree.io/f/xkgqzvab" method="POST">
+  <label>
+    Your email:
+    <input type="email" name="email" required placeholder="you@example.com">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message" required placeholder="Write your message here…"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
+
+<!-- Message container -->
+<div id="formMessage" style="display:none; margin-top:10px; padding:10px; border-radius:8px;"></div>
+
+          </div>
+
+          <aside>
+            <h4 style="margin:0 0 8px">Quick links</h4>
+            <div class="muted">
+  Download CV — <a href="https://drive.google.com/uc?export=download&id=1qQuUh05pcTd_7Vc48dmLShRHsEJcsrdL" target="_blank" rel="noopener noreferrer">PDF</a>
+</div>
+
+            <div class="muted" style="margin-top:8px">
+  Socials: 
+  <a href="https://bit.ly/4kOFlv5" target="_blank" rel="noopener noreferrer">LinkedIn</a> · 
+  <a href="http://bit.ly/3IKvrxO" target="_blank" rel="noopener noreferrer">TikTok</a> · 
+  Twitter
+</div>
+
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <strong>Kings</strong> — All rights reserved.</div>
+        <div class="muted">Built with minimal, modern design · Preview locally or deploy to GitHub Pages / Netlify</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // simple smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
+  
+<script>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formMessage.style.display = 'block';
+        formMessage.style.backgroundColor = '#e6f4ea'; // subtle green
+        formMessage.style.color = '#056608';
+        formMessage.textContent = "Thank you! Your message has been sent successfully.";
+        form.reset();
+
+        // Fade out after 5 seconds
+        setTimeout(() => {
+          formMessage.style.transition = 'opacity 1s ease';
+          formMessage.style.opacity = '0';
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+            formMessage.style.opacity = '1'; // reset opacity for next message
+          }, 1000);
+        }, 5000);
+
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      formMessage.style.display = 'block';
+      formMessage.style.backgroundColor = '#fdecea'; // subtle red
+      formMessage.style.color = '#b71c1c';
+      formMessage.textContent = "Oops! Something went wrong. Please try again.";
+
+      // Fade out after 5 seconds
+      setTimeout(() => {
+        formMessage.style.transition = 'opacity 1s ease';
+        formMessage.style.opacity = '0';
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+          formMessage.style.opacity = '1';
+        }, 1000);
+      }, 5000);
+    }
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById('themeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
+</body>
+
+</html>
